@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.lmmnb.guangzhouculturehelper.R;
+import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
 import com.lmmnb.guangzhouculturehelper.app.view.MainActivity;
 
 import java.util.zip.CheckedOutputStream;
@@ -46,7 +47,7 @@ public class RecordButton extends RelativeLayout {
             @Override
             public boolean onLongClick(View view) {
                 isLongClicked = true;
-                MainActivity.et1.et2.setHint("说吧，我在听呢~");
+                First_page.et1.et2.setHint("说吧，我在听呢~");
                 return false;
 
             }
@@ -72,13 +73,13 @@ public class RecordButton extends RelativeLayout {
 
                     ripple.stopRippleAnimation();  //动画效果停止
                     //手指抬起后判断语言转换的情景来设定hint
-                    if(MainActivity.getText())
+                    if(First_page.getText())
                     {
-                        MainActivity.et1.et2.setHint("在此输入要翻译的文本...");
+                        First_page.et1.et2.setHint("在此输入要翻译的文本...");
                     }
                     else
                     {
-                        MainActivity.et1.et2.setHint("请使用语音进行粤语转换");
+                        First_page.et1.et2.setHint("请使用语音进行粤语转换");
                     }
 
                     if (!isLongClicked ) return false;

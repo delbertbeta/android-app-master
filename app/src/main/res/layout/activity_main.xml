@@ -8,12 +8,12 @@
     tools:context="com.lmmnb.guangzhouculturehelper.app.view.MainActivity">
 
     <com.lmmnb.guangzhouculturehelper.app.view.widget.MyEditText
+        android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:id="@+id/et1">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
     </com.lmmnb.guangzhouculturehelper.app.view.widget.MyEditText>
 

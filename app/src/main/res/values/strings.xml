@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">广州文化助手</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 </resources>

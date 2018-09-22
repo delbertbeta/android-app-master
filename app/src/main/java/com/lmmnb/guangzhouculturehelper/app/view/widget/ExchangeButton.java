@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.lmmnb.guangzhouculturehelper.R;
+import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
 import com.lmmnb.guangzhouculturehelper.app.view.MainActivity;
 
 import java.io.Reader;
@@ -121,13 +122,13 @@ public class ExchangeButton extends RelativeLayout {
                 String temp = startTextView.getText().toString();
                 if(flag)
                 {
-                    MainActivity.et1.setEnabled(true);
-                    MainActivity.et1.et2.setHint("在此输入要翻译的文本...");
+                    First_page.et1.setEnabled(true);
+                    First_page.et1.et2.setHint("在此输入要翻译的文本...");
                 }
                 else
                 {
-                    MainActivity.et1.setEnabled(false);
-                    MainActivity.et1.et2.setHint("请使用语音进行粤语转换");
+                    First_page.et1.setEnabled(false);
+                    First_page.et1.et2.setHint("请使用语音进行粤语转换");
                 }
 
 
