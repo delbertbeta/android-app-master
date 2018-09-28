@@ -1,6 +1,9 @@
 package com.lmmnb.guangzhouculturehelper.app.view;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +17,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -24,8 +28,10 @@ import android.widget.Toast;
 import com.lmmnb.guangzhouculturehelper.R;
 import com.lmmnb.guangzhouculturehelper.api.apis.Language;
 import com.lmmnb.guangzhouculturehelper.api.apis.Test;
+import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_Time;
 import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
 import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
+import com.lmmnb.guangzhouculturehelper.app.view.Fragment.Recommend;
 import com.lmmnb.guangzhouculturehelper.app.view.Fragment.Welcome;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.ExchangeButton;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.MyAdapter;
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Fragment fragment;
 
+    private Button b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,9 +81,13 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         mToolbar.setTitle("美食助手");
-                        fragment = new Welcome();
+                        fragment = new First_Time();
                         mDrawerLayout.closeDrawer(Gravity.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.f1,fragment).commit();
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.f1,fragment).commit();
+
                         break;
 
                 }
@@ -85,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         mToolbar.setTitle("广州文化助手");//customize the title,个性化设置title
+        mToolbar.setBackgroundColor(getResources().getColor(R.color.Primary));
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//show back button and make it enabled
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

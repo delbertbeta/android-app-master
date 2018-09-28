@@ -8,7 +8,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.lmmnb.guangzhouculturehelper"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -44,6 +44,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
 
     compile 'com.android.support:cardview-v7:26.1.0'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
 
     testImplementation 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
