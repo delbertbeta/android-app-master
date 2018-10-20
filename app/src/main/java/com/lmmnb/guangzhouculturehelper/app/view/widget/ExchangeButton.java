@@ -122,12 +122,12 @@ public class ExchangeButton extends RelativeLayout {
                 String temp = startTextView.getText().toString();
                 if(flag)
                 {
-                    First_page.et1.setEnabled(true);
+                    First_page.et1.et2.setEnabled(true);
                     First_page.et1.et2.setHint("在此输入要翻译的文本...");
                 }
                 else
                 {
-                    First_page.et1.setEnabled(false);
+                    First_page.et1.et2.setEnabled(false);
                     First_page.et1.et2.setHint("请使用语音进行粤语转换");
                 }
 

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ratingbar="http://schemas.android.com/tools">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="7dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/label_pic"
+                android:layout_width="134dp"
+                android:layout_height="134dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:elevation="5dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/label_pic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="6dp"
+                android:text="食物"
+                android:textColor="#000000"
+                android:textSize="23dp" />
+
+            <com.jaren.lib.view.LikeView
+                android:id="@+id/likeview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/label_pic"
+                android:layout_alignParentEnd="true"
+                app:cirRadius="10dp"
+                app:cycleTime="2000"
+                app:defaultColor="#ff657487" />
+
+            <com.idlestar.ratingstar.RatingStarView
+                android:id="@+id/star"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/likeview"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="-17dp"
+                android:layout_marginEnd="0dp"
+                android:layout_toStartOf="@+id/likeview"
+                android:background="#fff"
+                android:paddingLeft="0dp"
+                android:paddingTop="2dp"
+                android:paddingRight="0dp"
+                app:cornerRadius="4dp"
+                app:drawStrokeForEmptyStar="false"
+                app:drawStrokeForHalfStar="false"
+                app:enableSelectRating="true"
+                app:onlyHalfStar="false"
+                app:rating="1"
+                app:starBackgroundColor="#c4c4c4"
+                app:starForegroundColor="#ffff00"
+                app:starMargin="8dp"
+                app:starNum="5"
+                app:starThickness="0.7"
+                app:strokeColor="#457DD7"
+                app:strokeWidth="0px" />
+
+            <TextView
+                android:id="@+id/want_l1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/introduce"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/myshape3"
+                android:paddingLeft="9dp"
+                android:paddingTop="3dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="3dp"
+                android:text="#标签"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/want_l2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/want_l1"
+                android:background="@drawable/myshape3"
+                android:layout_toRightOf="@+id/want_l1"
+                android:layout_marginLeft="11dp"
+                android:paddingLeft="9dp"
+                android:paddingTop="3dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="3dp"
+                android:text="#标签"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/introduce"
+                android:layout_width="189dp"
+                android:layout_height="40dp"
+                android:layout_alignStart="@+id/textView3"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginBottom="7dp" />
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

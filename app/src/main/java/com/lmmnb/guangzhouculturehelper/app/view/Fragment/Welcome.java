@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.support.v4.app.FragmentManager;
 
@@ -23,7 +22,7 @@ public class Welcome extends Fragment {
 
         rootView = inflater.inflate(R.layout.welcome,container,false);
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        mFragment = new Recommend();
+        mFragment = new Food_page();
         fm.beginTransaction().replace(R.id.f3,mFragment).commit();
 
 

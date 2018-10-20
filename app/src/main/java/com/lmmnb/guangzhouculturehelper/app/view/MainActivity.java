@@ -1,10 +1,8 @@
 package com.lmmnb.guangzhouculturehelper.app.view;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,35 +10,18 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.lmmnb.guangzhouculturehelper.R;
 import com.lmmnb.guangzhouculturehelper.api.apis.Language;
 import com.lmmnb.guangzhouculturehelper.api.apis.Test;
 import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_Time;
 import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
-import com.lmmnb.guangzhouculturehelper.app.view.Fragment.First_page;
-import com.lmmnb.guangzhouculturehelper.app.view.Fragment.Recommend;
-import com.lmmnb.guangzhouculturehelper.app.view.Fragment.Welcome;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.ExchangeButton;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.MyAdapter;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.MyEditText;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.MyOption;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.MyText;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.RecordButton;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.Ripple;
-import com.lmmnb.guangzhouculturehelper.app.view.widget.TextAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

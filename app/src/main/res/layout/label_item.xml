@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="45dp"
+    >
+
+    <ImageView
+        android:id="@+id/list_icon"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/delete_list_item"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="0dp"
+        android:src="@drawable/list_icon" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="24dp"
+        android:textSize="20dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/list_icon"/>
+
+    <Button
+        android:id="@+id/delete_list_item"
+        android:background="@drawable/red_close"
+        android:layout_toRightOf="@+id/label"
+        android:layout_marginLeft="24dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>

@@ -3,6 +3,8 @@ package com.lmmnb.guangzhouculturehelper.app.view.Fragment;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,7 @@ import com.lmmnb.guangzhouculturehelper.R;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.BottomBar;
 import com.lmmnb.guangzhouculturehelper.app.view.widget.MyImgBtn;
 
-public class Recommend extends Fragment {
+public class Food_page extends Fragment {
     private View rootView;
 
     private MyImgBtn myImgBtn;
@@ -20,13 +22,18 @@ public class Recommend extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        rootView = inflater.inflate(R.layout.empty,container,false);
+        rootView = inflater.inflate(R.layout.food_page,container,false);
 
         myImgBtn = (MyImgBtn)rootView.findViewById(R.id.camera);
         myImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"success",Toast.LENGTH_SHORT).show();
+                Fragment fragment = new Picture_Food();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction tx = fragmentManager.beginTransaction();
+                tx.replace(R.id.f1,fragment);
+                tx.addToBackStack(null);
+                tx.commit();
             }
         });
 
