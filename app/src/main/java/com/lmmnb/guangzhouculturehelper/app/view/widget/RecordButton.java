@@ -77,6 +77,8 @@ public class RecordButton extends RelativeLayout {
 //                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams)First_page.et1.getLayoutParams();
 //                layoutParams.setMargins(0,0,0,0);
                 First_page.tv4translate.setText("");
+                First_page.tv4translate.setVisibility(View.INVISIBLE);
+                First_page.exchangbtn.bringToFront();
                 First_page.et1.bringToFront();
                 First_page.et1.et2.setText("");
                 First_page.et1.et2.setHint("说吧，我在听呢~");

@@ -29,7 +29,7 @@ import java.util.List;
 
 public class First_page extends Fragment {
     private ImageButton clearbtn;   //清除按钮
-    private static ExchangeButton exchangbtn;
+    public static ExchangeButton exchangbtn;
     public  static MyEditText et1;
     public static TextView tv4translate; //翻译文本
     private RecordButton recordButton;  //录音按钮
@@ -52,6 +52,7 @@ public class First_page extends Fragment {
 
         et1=(MyEditText) rootView.findViewById(R.id.et1);
         tv4translate = (TextView) rootView.findViewById(R.id.tv4translate);
+        tv4translate.setVisibility(View.INVISIBLE);
 
         recordButton = (RecordButton)rootView.findViewById(R.id.record);
         exchangbtn = (ExchangeButton)rootView.findViewById(R.id.ExchangeButton);
@@ -79,6 +80,7 @@ public class First_page extends Fragment {
 //                    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams)et1.getLayoutParams();
 //                    layoutParams.setMargins(0,120,0,0);
                     tv4translate.setText(translatedStr);
+                    tv4translate.setVisibility(View.VISIBLE);
                     tv4translate.bringToFront();
                 }
                 return false;
