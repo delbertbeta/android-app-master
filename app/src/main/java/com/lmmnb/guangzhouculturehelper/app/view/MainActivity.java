@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
-
+        Log.i("created","created");
         fragment = new First_page();
         getSupportFragmentManager().beginTransaction().replace(R.id.f1,fragment).commit();
 
@@ -87,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
         mActionBarDrawerToggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);//channge the icon,改变图标
         mActionBarDrawerToggle.syncState();////show the default icon and sync the DrawerToggle state,如果你想改变图标的话，这句话要去掉。这个会使用默认的三杠图标
         mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);//关联 drawerlayout
-
     }
 
     private void init()
@@ -112,6 +111,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.i("destroy","main");
 
+    }
 
 }

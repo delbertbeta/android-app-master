@@ -2,6 +2,7 @@ package com.lmmnb.guangzhouculturehelper.app.view.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lmmnb.guangzhouculturehelper.R;
 
@@ -34,22 +36,22 @@ public class MyEditText extends RelativeLayout{
         init(context);
     }
 
-    private void init(Context context)
+    private void init(final Context context)
     {
         et2 = (EditText)findViewById(R.id.et2);
-        et2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-                if(i == EditorInfo.IME_ACTION_SEND
-                        || i == EditorInfo.IME_ACTION_DONE
-                        || (keyEvent != null
-                        && KeyEvent.KEYCODE_ENTER == keyEvent.getKeyCode()
-                        && KeyEvent.ACTION_DOWN == keyEvent.getAction()))
-                {
-
-                }
-                return false;
-            }
-        });
+//        et2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+//                if(i == EditorInfo.IME_ACTION_SEND
+//                        || i == EditorInfo.IME_ACTION_DONE
+//                        || (keyEvent != null
+//                        && KeyEvent.KEYCODE_ENTER == keyEvent.getKeyCode()
+//                        && KeyEvent.ACTION_DOWN == keyEvent.getAction()))
+//                {
+//
+//                }
+//                return false;
+//            }
+//        });
     }
 }

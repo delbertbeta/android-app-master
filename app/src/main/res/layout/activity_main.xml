@@ -7,15 +7,28 @@
     android:layout_height="match_parent"
     tools:context="com.lmmnb.guangzhouculturehelper.app.view.MainActivity">
 
+    <TextView
+        android:id="@+id/tv4translate"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:paddingLeft="20dp"
+        android:paddingTop="40px"
+        android:layout_marginTop="250px"
+        android:background="@drawable/border_textview"
+        android:textSize="16sp"/>
+
     <com.lmmnb.guangzhouculturehelper.app.view.widget.MyEditText
         android:id="@+id/et1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
+        android:layout_alignParentTop="true"
+        android:imeOptions="actionSend"
+        android:inputType="textMultiLine"
+        android:background="@color/white">
     </com.lmmnb.guangzhouculturehelper.app.view.widget.MyEditText>
+
 
     <ImageButton
         android:id="@+id/clearBtn"

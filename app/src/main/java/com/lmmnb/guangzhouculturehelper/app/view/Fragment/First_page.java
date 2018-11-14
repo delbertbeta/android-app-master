@@ -3,11 +3,16 @@ package com.lmmnb.guangzhouculturehelper.app.view.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.lmmnb.guangzhouculturehelper.R;
 import com.lmmnb.guangzhouculturehelper.app.view.MainActivity;
@@ -24,8 +29,9 @@ import java.util.List;
 
 public class First_page extends Fragment {
     private ImageButton clearbtn;   //清除按钮
-    private static ExchangeButton exchangbtn;
+    public static ExchangeButton exchangbtn;
     public  static MyEditText et1;
+    public static TextView tv4translate; //翻译文本
     private RecordButton recordButton;  //录音按钮
     private ListView history;
     //用于储存ListView中的MyText对象
@@ -45,6 +51,8 @@ public class First_page extends Fragment {
         history.setAdapter(adapter);
 
         et1=(MyEditText) rootView.findViewById(R.id.et1);
+        tv4translate = (TextView) rootView.findViewById(R.id.tv4translate);
+        tv4translate.setVisibility(View.INVISIBLE);
 
         recordButton = (RecordButton)rootView.findViewById(R.id.record);
         exchangbtn = (ExchangeButton)rootView.findViewById(R.id.ExchangeButton);
@@ -57,6 +65,28 @@ public class First_page extends Fragment {
                 et1.et2.setText("");
             }
         });
+
+        et1.et2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i == EditorInfo.IME_ACTION_SEND
+                        || i == EditorInfo.IME_ACTION_DONE
+                        || (keyEvent != null
+                        && KeyEvent.KEYCODE_ENTER == keyEvent.getKeyCode()
+                        && KeyEvent.ACTION_DOWN == keyEvent.getAction()))
+                {
+                    String translatedStr = "普通话->粤语，已经翻译好的文本";
+                    // 在这里添加动态改变控件位置的代码
+//                    ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams)et1.getLayoutParams();
+//                    layoutParams.setMargins(0,120,0,0);
+                    tv4translate.setText(translatedStr);
+                    tv4translate.setVisibility(View.VISIBLE);
+                    tv4translate.bringToFront();
+                }
+                return false;
+            }
+        });
+
         return rootView;
     }
 

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -73,6 +74,13 @@ public class RecordButton extends RelativeLayout {
             @Override
             public boolean onLongClick(View view) {
                 isLongClicked = true;
+//                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams)First_page.et1.getLayoutParams();
+//                layoutParams.setMargins(0,0,0,0);
+                First_page.tv4translate.setText("");
+                First_page.tv4translate.setVisibility(View.INVISIBLE);
+                First_page.exchangbtn.bringToFront();
+                First_page.et1.bringToFront();
+                First_page.et1.et2.setText("");
                 First_page.et1.et2.setHint("说吧，我在听呢~");
                 // 是长按事件，开始录音
                 try {
@@ -80,8 +88,8 @@ public class RecordButton extends RelativeLayout {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            //开始录音
-                            //Toast.makeText(MainActivity.this,"开始录音",Toast.LENGTH_SHORT).show();
+                            // 开始录音
+                            // Toast.makeText(MainActivity.this,"开始录音",Toast.LENGTH_SHORT).show();
                             startRecording();
                         }
                     }).start();
@@ -114,8 +122,10 @@ public class RecordButton extends RelativeLayout {
 
                     return false;
                 case MotionEvent.ACTION_UP:
-                    ripple.stopRippleAnimation();  //动画效果停止
-                    //手指抬起后判断语言转换的情景来设定hint
+                    ripple.stopRippleAnimation();
+                    stopRecording();
+                    // 动画效果停止
+                    // 手指抬起后判断语言转换的情景来设定hint
                     // true 普通话=>粤语
                     // false 粤语语音=>普通话
                     if(First_page.getText()) {
@@ -148,15 +158,15 @@ public class RecordButton extends RelativeLayout {
             return;
         }
 
-        //⑧申请录制音频的动态权限
+        // 申请录制音频的动态权限
         if(ContextCompat.checkSelfPermission(this.context, android.Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this.activity,new String[]{
                     android.Manifest.permission.RECORD_AUDIO},1);
         }else{
-            //申请读写sd卡的动态权限
+            // 申请读写sd卡的动态权限
             try {
-                //检测是否有写的权限
+                // 检测是否有写的权限
                 int permission = ActivityCompat.checkSelfPermission(this.context,
                         "android.permission.WRITE_EXTERNAL_STORAGE");
                 if (permission != PackageManager.PERMISSION_GRANTED) {
@@ -166,22 +176,20 @@ public class RecordButton extends RelativeLayout {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
+            // 录音的相关设置：输出格式、路径等
             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             mediaRecorder.setOutputFormat(MediaRecorder
                     .OutputFormat.AMR_NB);
             mediaRecorder.setAudioEncoder(MediaRecorder
                     .AudioEncoder.AMR_NB);
             mediaRecorder.setOutputFile(recordFile.getAbsolutePath());
+            Log.d("filePath","----------------------" + recordFile.getAbsolutePath() + "-----------------------------");
             // 判断，若当前文件已存在，则删除
             if (recordFile.exists()) {
-                Log.d("Tag","before delete--------------"+recordFile.getTotalSpace()+"--------------");
                 deleteFile();
-                Log.d("Tag","after delete--------------"+recordFile.getTotalSpace()+"--------------");
-                Log.d("Tag","----------------------"+recordFile.getAbsolutePath()+"-----------------------------");
             }
             try {
-                // 准备好开始录音
+                // 准备好开始录音 这里和设备有关，可能会报err java.lang.IllegalStaateException
                 mediaRecorder.prepare();
                 mediaRecorder.start();
             } catch (IllegalStateException e) {
