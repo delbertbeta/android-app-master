@@ -6,9 +6,9 @@ package com.lmmnb.guangzhouculturehelper.api.services;
  */
 
 public class Url {
-    private static final String domain = "api.gd.delbertbeta.cc";
+    private static final String domain = "gd.delbertbeta.cc";
     private static final String domain2 = "ali.delbertbeta.cc";
-    private static final String protocol = "http://";
+    private static final String protocol = "https://";
     private static final String app = "/v1/app";
 
     private static String catUrl(String url) {

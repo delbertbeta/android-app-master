@@ -37,28 +37,28 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragment;
 
     private Button b;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer);
-        Log.i("created","created");
+        Log.i("created", "created");
         fragment = new First_page();
-        getSupportFragmentManager().beginTransaction().replace(R.id.f1,fragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.f1, fragment).commit();
 
         init();
-        MyAdapter myAdapter = new MyAdapter(MainActivity.this,R.layout.option,list);
+        MyAdapter myAdapter = new MyAdapter(MainActivity.this, R.layout.option, list);
         lvLeftMenu = (ListView) findViewById(R.id.lv_left_menu);
         lvLeftMenu.setAdapter(myAdapter);
         lvLeftMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                switch (i){
+                switch (i) {
                     case 0:
                         mToolbar.setTitle("翻译助手");
                         fragment = new First_page();
                         mDrawerLayout.closeDrawer(Gravity.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.f1,fragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.f1, fragment).commit();
                         break;
                     case 1:
                         mToolbar.setTitle("美食助手");
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         FragmentManager fragmentManager = getSupportFragmentManager();
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.addToBackStack(null);
-                        fragmentTransaction.replace(R.id.f1,fragment).commit();
+                        fragmentTransaction.replace(R.id.f1, fragment).commit();
 
                         break;
 
@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar = (Toolbar) findViewById(R.id.tool_bar);
         mToolbar.setTitle("广州文化助手");//customize the title,个性化设置title
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
         mToolbar.setBackgroundColor(getResources().getColor(R.color.Primary));
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);//show back button and make it enabled
@@ -86,19 +87,18 @@ public class MainActivity extends AppCompatActivity {
         mActionBarDrawerToggle.setDrawerIndicatorEnabled(true);
         mActionBarDrawerToggle.setHomeAsUpIndicator(R.mipmap.ic_launcher);//channge the icon,改变图标
         mActionBarDrawerToggle.syncState();////show the default icon and sync the DrawerToggle state,如果你想改变图标的话，这句话要去掉。这个会使用默认的三杠图标
+        mActionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.white));
         mDrawerLayout.setDrawerListener(mActionBarDrawerToggle);//关联 drawerlayout
     }
 
-    private void init()
-    {
-        MyOption o1 = new MyOption("翻译",R.drawable.ic_translate_grey_700_24dp);
+    private void init() {
+        MyOption o1 = new MyOption("翻译", R.drawable.ic_translate_grey_700_24dp);
         list.add(o1);
-        MyOption o2 = new MyOption("美食助手",R.drawable.ic_restaurant_grey_700_24dp);
+        MyOption o2 = new MyOption("美食助手", R.drawable.ic_restaurant_grey_700_24dp);
         list.add(o2);
     }
 
-    private void translate()
-    {
+    private void translate() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -111,10 +111,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+
     @Override
-    public void onDestroy(){
+    public void onDestroy() {
         super.onDestroy();
-        Log.i("destroy","main");
+        Log.i("destroy", "main");
 
     }
 
